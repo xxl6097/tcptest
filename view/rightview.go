@@ -190,6 +190,19 @@ func (this *Right) SetSendInterval(b bool, i int) {
 	}
 }
 
+func (this *Right) OnWorkModeSelect(item string) {
+	this.sendandclearview.RemoveAll()
+	if item == "TCP服务器" {
+		this.sendandclearview.Add(this.chsClientBtn)
+		this.sendandclearview.Add(this.sendBtn)
+		this.sendandclearview.Add(this.clearBtn)
+	} else {
+		this.sendandclearview.Add(this.sendBtn)
+		this.sendandclearview.Add(this.clearBtn)
+	}
+	this.SetSendInterval(this.bIsSendInterval, this.sendInterval)
+}
+
 func (this *Right) onSendClick() {
 	if this.bIsSendInterval {
 		this.ctx, this.cancel = context.WithCancel(context.Background())
@@ -259,18 +272,6 @@ func (this *Right) OnHexCheck(status bool) {
 
 func (this *Right) OnSendDataHex(status bool) {
 	this.isHexSend = status
-}
-
-func (this *Right) OnWorkModeSelect(item string) {
-	this.sendandclearview.RemoveAll()
-	if item == "TCP服务器" {
-		this.sendandclearview.Add(this.chsClientBtn)
-		this.sendandclearview.Add(this.sendBtn)
-		this.sendandclearview.Add(this.clearBtn)
-	} else {
-		this.sendandclearview.Add(this.sendBtn)
-		this.sendandclearview.Add(this.clearBtn)
-	}
 }
 
 func (this *Right) onGetClientsClick(sel string) {

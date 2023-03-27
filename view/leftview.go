@@ -327,7 +327,7 @@ func (this *Left) recvView() *fyne.Container {
 }
 
 func (this *Left) sendView() *fyne.Container {
-	this.sendHexCheck = widget.NewCheck("十六进制接收", func(b bool) {
+	this.sendHexCheck = widget.NewCheck("十六进制发送", func(b bool) {
 		this.rightview.OnSendDataHex(b)
 	})
 	this.sendStickyCheck = widget.NewCheck("分包设置(可模拟断粘包)", func(b bool) {
