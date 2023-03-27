@@ -1,5 +1,5 @@
 # tcp调试工具
-一款基于fyne gui框架开发的tcp调试工具，tcp框架基于[zinx](https://github.com/aceld/zinx)
+一款tcp调试工具，gui基于fyne，tcp框架基于[zinx](https://github.com/aceld/zinx)
 
 
 [tcptestv.0.0.1下载](https://github.com/xxl6097/tcptest/releases/tag/v0.0.0)
