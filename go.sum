@@ -44,8 +44,8 @@ fyne.io/systray v1.10.1-0.20230312215936-7f71b037e260/go.mod h1:oM2AQqGJ1AMo4nNq
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/BurntSushi/toml v1.1.0/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
-github.com/aceld/zinx v1.1.8 h1:ZF7GZemU8U8DCmO3eFM1op3UMGagsSVjXJZ6g3mM4fo=
-github.com/aceld/zinx v1.1.8/go.mod h1:09eYMfirAhQ31ZGGjs2VBQcz75wXejnI4Ry7PR6srhk=
+github.com/aceld/zinx v1.1.13-0.20230327075456-7335d5fe38bb h1:B2hZgRx2PlQAltv17rCQbU/UlXjM6jy2bbn7UsPtXE4=
+github.com/aceld/zinx v1.1.13-0.20230327075456-7335d5fe38bb/go.mod h1:09eYMfirAhQ31ZGGjs2VBQcz75wXejnI4Ry7PR6srhk=
 github.com/akavel/rsrc v0.10.2/go.mod h1:uLoCtb9J+EyAqh+26kdrTgmzRBFPGOolLWKpdxkKq+c=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e/go.mod h1:3U/XgcO3hCbHZ8TKRvWD2dDTCfh9M9ya+I9JpbB7O8o=

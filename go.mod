@@ -1,11 +1,12 @@
 module tcptest
 
-go 1.19
+go 1.18
 
 require (
 	fyne.io/fyne/v2 v2.3.2
-	github.com/aceld/zinx v1.1.8
+	github.com/aceld/zinx v1.1.13-0.20230327075456-7335d5fe38bb
 	github.com/gookit/color v1.5.2
+	golang.org/x/text v0.6.0
 )
 
 require (
@@ -35,7 +36,6 @@ require (
 	golang.org/x/mobile v0.0.0-20211207041440-4e6c2922fdee // indirect
 	golang.org/x/net v0.0.0-20220722155237-a158d28d115b // indirect
 	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
-	golang.org/x/text v0.6.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	honnef.co/go/js/dom v0.0.0-20210725211120-f030747120f2 // indirect
 )
