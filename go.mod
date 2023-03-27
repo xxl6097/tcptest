@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	fyne.io/fyne/v2 v2.3.2
-	github.com/aceld/zinx v1.1.13-0.20230327075456-7335d5fe38bb
+	github.com/aceld/zinx v1.1.14
 	github.com/gookit/color v1.5.2
 	golang.org/x/text v0.6.0
 )
