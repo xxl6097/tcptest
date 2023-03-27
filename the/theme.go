@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	//go:embed fonts/WONE.TTF
+	//go:embed fonts/SAN1.ttf
 	NotoSansSC []byte
 )
 
@@ -19,7 +19,7 @@ var _ fyne.Theme = (*MyTheme)(nil)
 // StaticName 为 fonts 目录下的 ttf 类型的字体文件名
 func (m MyTheme) Font(fyne.TextStyle) fyne.Resource {
 	return &fyne.StaticResource{
-		StaticName:    "WONE.TTF",
+		StaticName:    "SAN1.ttf",
 		StaticContent: NotoSansSC,
 	}
 }
