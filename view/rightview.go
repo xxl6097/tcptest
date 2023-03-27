@@ -20,7 +20,7 @@ type Right struct {
 	localport, destip, destport                               *widget.Entry
 	firstEntry, secondEntry, thirdEntry                       *widget.Entry
 	workmode, chsClientBtn                                    *widget.Select
-	startBtn, sendBtn, clearBtn                               *widget.Button
+	startBtn, sendBtn, stopBtn, clearBtn                      *widget.Button
 	hexCheck, sendCheck                                       *widget.Check
 	recvlogview, sendlogview                                  Logview
 	rootview, upview, downview, sendbtnview, sendandclearview *fyne.Container
@@ -90,6 +90,10 @@ func (this *Right) initView() {
 
 	this.sendBtn = widget.NewButton("发送", this.onSendClick)
 	this.sendBtn.Disable()
+	this.stopBtn = widget.NewButton("停止", func() {
+		this.sendBtn.Enable()
+		this.cancel()
+	})
 	this.clearBtn = widget.NewButton("清空信息", func() {
 		this.sendlogview.Clear()
 	})
@@ -107,10 +111,6 @@ func (this *Right) initView() {
 	this.sendview = container.NewGridWithRows(2, this.sendbtnview, sendlogdetailview)
 
 	this.rootview = container.NewGridWithRows(2, this.upview, this.sendview)
-}
-func (this *Right) SetSendInterval(b bool, i int) {
-	this.bIsSendInterval = b
-	this.sendInterval = i
 }
 func (this *Right) OnMessageReceiver(bytes []byte) {
 	if this.isHexDisplay {
@@ -177,19 +177,35 @@ func (this *Right) getSendData() [][]byte {
 	return nil
 }
 
+func (this *Right) SetSendInterval(b bool, i int) {
+	this.bIsSendInterval = b
+	this.sendInterval = i
+	this.sendandclearview.Remove(this.clearBtn)
+	this.sendandclearview.Remove(this.stopBtn)
+	if b {
+		this.sendandclearview.Add(this.stopBtn)
+		this.sendandclearview.Add(this.clearBtn)
+	} else {
+		this.sendandclearview.Add(this.clearBtn)
+	}
+}
+
 func (this *Right) onSendClick() {
 	if this.bIsSendInterval {
 		this.ctx, this.cancel = context.WithCancel(context.Background())
-		defer this.cancel()
 		this.sendBtn.Disable()
-		for {
-			select {
-			case <-this.ctx.Done():
-				return
-			case <-time.After(time.Millisecond * time.Duration(this.sendInterval)):
-				this.mainview.Send(this.getSendData())
+		go func() {
+			defer this.cancel()
+			for {
+				select {
+				case <-this.ctx.Done():
+					return
+				case <-time.After(time.Millisecond * time.Duration(this.sendInterval)):
+					this.mainview.Send(this.getSendData())
+				}
 			}
-		}
+		}()
+
 	} else {
 		this.mainview.Send(this.getSendData())
 	}

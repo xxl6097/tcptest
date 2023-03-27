@@ -153,9 +153,9 @@ func (this *Left) disable() {
 	//this.recvHexCheck.Disable()
 
 	//this.sendHexCheck.Disable()
-	this.sendStickyCheck.Disable()
-	this.sendIntervalCheck.Disable()
-	this.sendEverySecEntry.Disable()
+	//this.sendStickyCheck.Disable()
+	//this.sendIntervalCheck.Disable()
+	//this.sendEverySecEntry.Disable()
 }
 func (this *Left) enable() {
 	this.workmodeSel.Enable()
@@ -174,9 +174,9 @@ func (this *Left) enable() {
 	//this.recvHexCheck.Enable()
 
 	//this.sendHexCheck.Enable()
-	this.sendStickyCheck.Enable()
-	this.sendIntervalCheck.Enable()
-	this.sendEverySecEntry.Enable()
+	//this.sendStickyCheck.Enable()
+	//this.sendIntervalCheck.Enable()
+	//this.sendEverySecEntry.Enable()
 }
 
 func (this *Left) initData() {
