@@ -7,6 +7,7 @@ import (
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"github.com/aceld/zinx/ziface"
+	"github.com/aceld/zinx/zlog"
 	"runtime"
 	"tcptest/entity"
 	"tcptest/tcp"
@@ -115,6 +116,12 @@ func (this *MainView) RunFyneView() {
 
 	this.rightview = NewRightView(this)
 	this.leftview = NewLeftView(this, this.rightview)
+
+	zlog.SetLogger(&vlog.MyLogger{
+		OnLogRecv: func(level vlog.Level, s string) {
+			this.rightview.OnConnDetailLog(level, s)
+		},
+	})
 
 	splitView := this.makeView(this.leftview.GetView(), this.rightview.GetView())
 	this._win.SetContent(splitView)

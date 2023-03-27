@@ -92,7 +92,9 @@ func (this *Right) initView() {
 	this.sendBtn.Disable()
 	this.stopBtn = widget.NewButton("停止", func() {
 		this.sendBtn.Enable()
-		this.cancel()
+		if this.cancel != nil {
+			this.cancel()
+		}
 	})
 	this.clearBtn = widget.NewButton("清空信息", func() {
 		this.sendlogview.Clear()
