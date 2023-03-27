@@ -38,11 +38,11 @@ $ bash build.sh
 ## TCP客户端模式使用说明
 
 
-[![客户端模式](png/client.jpg)](客户端模式)
+[![客户端模式](png/client.png)](客户端模式)
 
 
 
 ## TCP服务器模式使用说明
 
 
-[![客户端模式](png/server.jpg)](客户端模式)
+[![客户端模式](png/server.png)](客户端模式)
