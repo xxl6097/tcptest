@@ -64,6 +64,11 @@ func (this *ClientData) SetDecoder(lengthFieldOffset, lengthFieldLength, lengthA
 }
 
 func (this *ClientData) Start() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("second recover", r)
+		}
+	}()
 	this.client.Start()
 	fmt.Println("...start...")
 }
@@ -79,7 +84,7 @@ func (this *ClientData) SetRecv(recv func([]byte)) {
 func (this *ClientData) Send(bytes []byte) {
 	this.client.Conn().Send(bytes)
 }
-func (this *ClientData) Intercept(chain ziface.Chain) ziface.Response {
+func (this *ClientData) Intercept(chain ziface.IChain) ziface.IcResp {
 	request := chain.Request()
 	if request != nil {
 		switch request.(type) {

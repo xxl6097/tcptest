@@ -102,7 +102,7 @@ func (this *ServerData) GetMaps() map[string]uint64 {
 	}
 	return stringMap
 }
-func (this *ServerData) Intercept(chain ziface.Chain) ziface.Response {
+func (this *ServerData) Intercept(chain ziface.IChain) ziface.IcResp {
 	request := chain.Request()
 	if request != nil {
 		switch request.(type) {

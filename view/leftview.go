@@ -70,16 +70,18 @@ func (this *Left) settingView() *fyne.Container {
 		this.rightview.OnWorkModeSelect(item)
 	})
 	this.workmodeSel.Selected = AppData.Work.Workmode
-	this.localportEntry = widget.NewEntry()
-	this.destipEntry = widget.NewEntry()
-	this.destportEntry = widget.NewEntry()
-	this.destipEntry.SetPlaceHolder("目标IP或域名")
-	this.destportEntry.SetPlaceHolder("目标端口")
-	this.localportlabel = widget.NewLabel("本地端口：")
 
 	this.worklabel = widget.NewLabel("工作模式：")
-	this.destiplabel = widget.NewLabel("目的IP：      ")
+
+	this.localportEntry = widget.NewEntry()
+	this.localportlabel = widget.NewLabel("本地端口：")
+
+	this.destiplabel = widget.NewLabel("目的地址：")
 	this.destportlabel = widget.NewLabel("目的端口：")
+	this.destipEntry = widget.NewEntry()
+	this.destportEntry = widget.NewEntry()
+	this.destipEntry.SetPlaceHolder("IP或域名")
+	this.destportEntry.SetPlaceHolder("目标端口")
 
 	this.startBtn = widget.NewButton("打开", this.onClick(0))
 	//this.startBtn.Importance = widget.WarningImportance
@@ -120,10 +122,11 @@ func (this *Left) settingView() *fyne.Container {
 
 	this.workhbox = container.New(layout.NewFormLayout(), this.worklabel, this.workmodeSel)
 	hbox1 := container.New(layout.NewFormLayout(), this.destiplabel, this.destipEntry)
-	hbox2 := container.New(layout.NewFormLayout(), this.destportlabel, this.destportEntry)
+	//hbox1 := container.NewBorder(nil, nil, this.destiplabel, nil, this.destipEntry)
+	hbox2 := container.New(layout.NewFormLayout(), this.destportlabel, container.NewGridWrap(fyne.NewSize(55, 32), this.destportEntry))
 	this.clienthbox = container.NewVBox(hbox1, hbox2)
 
-	hbox3 := container.New(layout.NewFormLayout(), this.localportlabel, this.localportEntry)
+	hbox3 := container.New(layout.NewFormLayout(), this.localportlabel, container.NewGridWrap(fyne.NewSize(55, 32), this.localportEntry))
 	url, _ := url.Parse("https://netty.io/4.0/api/io/netty/handler/codec/LengthFieldBasedFrameDecoder.html")
 	hbox4 := container.NewHBox(this.setStickyCheck, widget.NewHyperlink("断粘包规则", url))
 	this.serverhbox = container.NewVBox(hbox3, hbox4)
@@ -362,7 +365,7 @@ func (this *Left) sendView() *fyne.Container {
 		NewWindow().Show()
 	})
 	this.sendEverySecEntry = widget.NewEntry()
-	sendsec := container.NewHBox(this.sendIntervalCheck, container.NewGridWrap(fyne.NewSize(70, 25), this.sendEverySecEntry), widget.NewLabel("毫秒发送"))
+	sendsec := container.NewHBox(this.sendIntervalCheck, container.NewGridWrap(fyne.NewSize(55, 32), this.sendEverySecEntry), widget.NewLabel("毫秒发送"))
 	view := container.NewVBox(this.sendHexCheck, this.sendStickyCheck, sendsec, container.NewHBox(hexbtn, this.clearLogBtn))
 	cc := container.NewBorder(widget.NewSeparator(), widget.NewSeparator(), widget.NewSeparator(), widget.NewSeparator(), view)
 	return cc

@@ -1,8 +1,6 @@
 package main
 
-import (
-	"tcptest/view"
-)
+import "tcptest/view"
 
 func main() {
 	view.NewView().RunFyneView()

@@ -24,7 +24,7 @@ func (this *Data) GetLengthField() *ziface.LengthField {
 	return this.field
 }
 
-func (this *Data) Intercept(chain ziface.Chain) ziface.Response {
+func (this *Data) Intercept(chain ziface.IChain) ziface.IcResp {
 	request := chain.Request()
 	if request != nil {
 		switch request.(type) {
