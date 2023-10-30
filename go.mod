@@ -3,17 +3,10 @@ module tcptest
 go 1.18
 
 require (
-<<<<<<< HEAD
 	fyne.io/fyne/v2 v2.3.3
 	github.com/aceld/zinx v1.1.15-0.20230330085445-9a2bccb9024f
 	github.com/gookit/color v1.5.3
 	golang.org/x/text v0.8.0
-=======
-	fyne.io/fyne/v2 v2.3.2
-	github.com/aceld/zinx v1.1.14
-	github.com/gookit/color v1.5.2
-	golang.org/x/text v0.6.0
->>>>>>> 681894cab7ffd7a0d9a4823070489866ed3a338e
 )
 
 require (
